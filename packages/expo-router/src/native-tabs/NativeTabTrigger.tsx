@@ -98,6 +98,9 @@ export function convertTabPropsToOptions(
     contentStyle,
     disableTransparentOnScrollEdge,
     disabled,
+    rippleColor,
+    disableIndicator,
+    labelVisibilityMode,
   }: NativeTabTriggerProps,
   isDynamic: boolean = false
 ) {
@@ -106,6 +109,9 @@ export function convertTabPropsToOptions(
         ...(unstable_nativeProps ? { nativeProps: unstable_nativeProps } : {}),
         ...(disableTransparentOnScrollEdge !== undefined ? { disableTransparentOnScrollEdge } : {}),
         ...(disabled !== undefined ? { disabled } : {}),
+        ...(rippleColor !== undefined ? { rippleColor } : {}),
+        ...(disableIndicator !== undefined ? { disableIndicator } : {}),
+        ...(labelVisibilityMode !== undefined ? { labelVisibilityMode } : {}),
       }
     : {
         hidden: !!hidden,
@@ -121,6 +127,9 @@ export function convertTabPropsToOptions(
         disableAutomaticContentInsets,
         ...(disableTransparentOnScrollEdge !== undefined ? { disableTransparentOnScrollEdge } : {}),
         ...(disabled !== undefined ? { disabled } : {}),
+        ...(rippleColor !== undefined ? { rippleColor } : {}),
+        ...(disableIndicator !== undefined ? { disableIndicator } : {}),
+        ...(labelVisibilityMode !== undefined ? { labelVisibilityMode } : {}),
       };
   const allowedChildren = filterAllowedChildrenElements(children, [
     NativeTabsTriggerBadge,

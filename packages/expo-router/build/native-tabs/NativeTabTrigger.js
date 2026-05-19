@@ -72,12 +72,15 @@ exports.NativeTabTrigger = Object.assign(NativeTabTriggerImpl, {
     Badge: elements_1.NativeTabsTriggerBadge,
     VectorIcon: elements_1.NativeTabsTriggerVectorIcon,
 });
-function convertTabPropsToOptions({ hidden, children, role, disablePopToTop, disableScrollToTop, unstable_nativeProps, disableAutomaticContentInsets, contentStyle, disableTransparentOnScrollEdge, disabled, }, isDynamic = false) {
+function convertTabPropsToOptions({ hidden, children, role, disablePopToTop, disableScrollToTop, unstable_nativeProps, disableAutomaticContentInsets, contentStyle, disableTransparentOnScrollEdge, disabled, rippleColor, disableIndicator, labelVisibilityMode, }, isDynamic = false) {
     const initialOptions = isDynamic
         ? {
             ...(unstable_nativeProps ? { nativeProps: unstable_nativeProps } : {}),
             ...(disableTransparentOnScrollEdge !== undefined ? { disableTransparentOnScrollEdge } : {}),
             ...(disabled !== undefined ? { disabled } : {}),
+            ...(rippleColor !== undefined ? { rippleColor } : {}),
+            ...(disableIndicator !== undefined ? { disableIndicator } : {}),
+            ...(labelVisibilityMode !== undefined ? { labelVisibilityMode } : {}),
         }
         : {
             hidden: !!hidden,
@@ -93,6 +96,9 @@ function convertTabPropsToOptions({ hidden, children, role, disablePopToTop, dis
             disableAutomaticContentInsets,
             ...(disableTransparentOnScrollEdge !== undefined ? { disableTransparentOnScrollEdge } : {}),
             ...(disabled !== undefined ? { disabled } : {}),
+            ...(rippleColor !== undefined ? { rippleColor } : {}),
+            ...(disableIndicator !== undefined ? { disableIndicator } : {}),
+            ...(labelVisibilityMode !== undefined ? { labelVisibilityMode } : {}),
         };
     const allowedChildren = (0, children_1.filterAllowedChildrenElements)(children, [
         elements_1.NativeTabsTriggerBadge,
